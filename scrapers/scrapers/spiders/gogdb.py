@@ -18,7 +18,8 @@ class GogdbSpider(scrapy.Spider):
             full_url = response.urljoin(url.extract())
             yield scrapy.Request(full_url, callback=self.parse)
 
-    def parse_product_page(self, response):
+    @staticmethod
+    def parse_product_page(response):
         """Parser for a product page"""
         item = GOGProduct()
         item["url"] = response.url

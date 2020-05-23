@@ -6,7 +6,7 @@ from lutris.services.humblebundle import HumbleBundleService
 
 
 def get_humble_library():
-    """Without an official to get a list of Humble Bundle games, the next best
+    """Without an official API to get a list of Humble Bundle games, the next best
     thing is to extract data from orders.
     """
     service = HumbleBundleService()
