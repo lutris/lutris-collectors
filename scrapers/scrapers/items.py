@@ -15,3 +15,4 @@ class GOGProduct(scrapy.Item):
     publisher = scrapy.Field()
     release_date = scrapy.Field()
     base_product = scrapy.Field()
+    api_availability = scrapy.Field()
