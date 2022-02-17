@@ -7,7 +7,6 @@ class GogdbSpider(scrapy.Spider):
     name = 'gogdb'
     allowed_domains = ['gogdb.org']
     start_urls = ['http://gogdb.org/products']
-    # start_urls = ["https://www.gogdb.org/product/1531168671"]
 
     def parse(self, response):
         """Extract data from game list and pagination links"""
@@ -32,5 +31,6 @@ class GogdbSpider(scrapy.Spider):
                     for system in row.css("i::attr('class')").extract()
                 )
                 row_data = ["Supported Systems", system_classes]
-            item[row_data[0].lower().replace(" ", "_")] = row_data[1]
+            if len(row_data) >= 2:
+                item[row_data[0].lower().replace(" ", "_")] = row_data[1]
         return item
